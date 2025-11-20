@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUKE GRANELLI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <main>
+        <!-- header -->
+        <header class="site-header">
+            <a href="#" class="logo">
+                <h1>Luke Granelli</h1>
+            </a>
+
+            <div class="header-right">
+                <!-- Theme toggle -->
+                <button id="theme-toggle" aria-label="Toggle theme" class="icon-button">
+                ☀️ / 🌙  
+                <!-- replace later with better design (when I get to js) -->
+                </button>
+
+                <!-- Hamburger (only visible on mobile/tablet) -->
+                <button id="hamburger" class="hamburger icon-button" aria-label="Menu" onClick={toggleHamburgerMenu}>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- navbar -->
+        <div id="navbar">
+            <nav>
+                <ul>
+                    <li class="nav-item"><a href="#about">About</a></li>
+                    <li class="nav-item"><a href="#projects">Projects</a></li>
+                    <li class="nav-item"><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+         
+        <!-- About Section -->
+        <section id="hero-section">
+            <h2 class="hero-name">Hi, I am Luke Granelli</h2>
+            <p id="about-info">Cape Town-based front-end developer on the path to full-stack and mobile application developer — currently mastering HTML, CSS, JavaScript and modern frameworks as well as exploring and studying mobile application frameworks such as React Native.</p>
+            <img id="profile-image" src="assets/images/profile-placeholder.jpg" alt="Silhouette placeholder" srcset="">
+        </section>
+
+
+        <hr class="section-divider">
+
+
+        <!-- Projects Section -->
+        <section id="projects-section">
+
+            <h2 class="section-headers">FEATURED PROJECTS</h2>
+            
+            <div class="card">
+                <div class="image-container">
+                    <img class="project-image" src="assets/images/harry-goemans-website.png" alt="Picture of Harry Goemans Website Homepage">
+                </div>
+                <div class="card-content">
+                    <h4 class="project-title">Harry Goemans</h4>
+                    <p class="project-info">Gardening website to attact customers, promoting their café business including maps and contact forms</p>
+                    <div class="bottom-row">
+                        <p class="tech-stack-info">HTML, CSS, JavaScript, AJAX</p>
+                        <a href="#" class="view-project-button">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-container">
+                <img class="project-image" src="assets/images/project-placeholder-image.jpg" alt="Screenshot of website">
+                </div>
+                <div class="card-content">
+                    <h4 class="project-title">Project Title</h4>
+                    <p class="project-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed hic et necessitatibus atque reiciendis cum quam debitis vero laudantium fugit inventore nisi corrupti ut, minus magnam sapiente libero non provident.</p>
+                    <div class="bottom-row">
+                        <p class="tech-stack-info">HTML, CSS, JavaScript, React, Nodejs, Nextjs, Supabase, GraphQL</p>
+                        <a href="#" class="view-project-button">View Project</a>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </section>
+
+        <hr class="section-divider">
+
+
+        <!-- Contact Section -->
+        <section id="contact-section">
+            <h2 class="section-headers">LET'S CONNECT</h2>
+
+            <form id="contact-form">
+                <label for="name">Name:</label> <br>
+                <input type="text" id="name" name="name" required> <br>
+
+                <label for="email">Email:</label> <br>
+                <input type="email" id="email" name="email" required> <br>
+
+                <label for="subject">Subject:</label> <br>
+                <input type="subject" id="subject" name="subject" required> <br>
+
+                <label for="message">Message:</label> <br>
+                <textarea id="message" name="message" required></textarea>
+                <div id="form-button-row">
+                    <button id="submit-button">Send</button>
+                </div>
+            </form>
+        </section>
+        <footer>
+            <p id="footer-text">© 2025 Luke Granelli. All rights reserved.</p>
+        </footer>
+
+
+
+
+    </main>
+</body>
+</html>

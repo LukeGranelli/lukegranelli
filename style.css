@@ -195,9 +195,9 @@ nav>ul>li {
     max-width: 100%;
     height: auto;
     border-radius: 1rem;
+    display: block;    
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
-
-
 
 
 /* project section */
@@ -215,17 +215,14 @@ nav>ul>li {
     border-radius: 1rem;
     padding-bottom: 0.75rem;
     margin-bottom: 1.5rem;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 .image-container {
     overflow: hidden;
     margin: 0;
     height: 16rem;
 }
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
+
 .project-image {
     width: 100%;
     height: auto;

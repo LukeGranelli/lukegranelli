@@ -17,6 +17,13 @@ body {
     line-height: 1.6;
     min-height: 100vh;
 }
+/* no scrolling of body when navbar menu opened via hamburger menu */
+body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+}
 hr {
     width: 75vw;
     margin: auto;
@@ -50,7 +57,7 @@ hr {
 img {
     max-width: 100%;
     height: auto;
-    display: block;   /* removes the tiny gap below images */
+    display: block;
 }
 
 
@@ -103,16 +110,33 @@ img {
 /* navbar */
 
 #navbar {
-    display: none;
+    display: block;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inset: 0;
+    width: 100vw;
+    background-color: #202020ee;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+    overflow-y: auto;
 }
+
+#navbar.open {
+    opacity: 1;
+    visibility: visible;
+}
+
 nav>ul>li {
     list-style-type: none;
     display: block;
-    width: 100%;
 }
 
 .nav-item {
-    width: 100%;
+    width: 80vw;
     background-color: #484848;
     text-align: center;
     padding: 0.75rem 0;
@@ -148,7 +172,7 @@ nav>ul>li {
 
 
 /* about section */
-#hero-section {
+#about-section {
     margin: 1rem;
 }
 .hero-name {

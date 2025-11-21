@@ -86,15 +86,12 @@ hr {
 }
 
 /* Hamburger Menu  */
-#hamburger-menu-icon {
-    height: 2rem;
-}
 .hamburger {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 24px;
+  width: 1.8rem;
+  height: 1.3rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -117,8 +114,8 @@ hr {
   transform: translateY(-10.5px) rotate(-45deg);
 }
 
-/* navbar */
 
+/* navbar */
 #navbar {
     display: block;
     position: fixed;
@@ -340,7 +337,11 @@ footer {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Tablet */
+
+
+
+/* --------------------- MEDIA QUERIES --------------------- */
+/* Tablet Media Queries */
 @media (min-width: 640px) {
     .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -373,6 +374,34 @@ footer {
         padding-top: 0.5rem;
         border-top: 1px solid rgba(255,255,255,0.1);
     }
+    .site-header {
+        padding: 1rem;
+        line-height: 2rem;
+    }
+    #logo-text {
+        font-size: 1.3rem;
+    }
+    .header-right {
+        gap: 2rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+    .hamburger {
+        width: 2.2rem;
+        height: 1.8rem;
+    }
+    .section-headers {
+        font-size: 2rem;
+    }
+    #submit-button {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1.6rem;
+    width: 5.5rem;
+}
+
 }
 
 /* 3 columns on desktop */

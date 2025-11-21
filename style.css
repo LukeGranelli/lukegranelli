@@ -7,6 +7,7 @@
     --accent: #ebe834;
     --button-text: #000000;
     --hamburger-line: #ffffff;
+    --hamburger-hover-line: var(--accent)
 }
 .light-mode {
     --bg: #e8e8e8;
@@ -16,6 +17,7 @@
     --accent: #ebe834;
     --button-text: #000000;
     --hamburger-line: #000000;
+    --hamburger-hover-line: #000000;
 }
 
 
@@ -102,7 +104,7 @@ hr {
   height: 3px;
   background-color: var(--hamburger-line);
   border-radius: 10px;
-  transition: all 0.35s ease;
+  transition: all 0.3s ease;
 }
 .hamburger.active .line:nth-child(1) {
   transform: translateY(10.5px) rotate(45deg);
@@ -140,22 +142,39 @@ nav>ul>li {
     display: block;
 }
 .nav-item {
+    position: relative;
     width: 80vw;
     background-color: var(--card);
     text-align: center;
-    padding: 0.75rem 0;
+    padding: 1.5rem 0;
     margin-bottom: 0.5rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
 }
 .nav-item a {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    color: var(--text);
+    color: #e0e0e0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    z-index: 1;
+}
+.nav-item:hover {
+    background-color: var(--accent);
+}
+
+.nav-item a:hover {
+    color: #000;
     font-weight: bold;
     font-size: 1.2rem;
 }
-.nav-item a:hover {
-    color: var(--accent);
-    font-weight: bold;
-    font-size: 1.2rem;
+.nav-item:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
 }
 .logo {
     text-decoration: none;
@@ -340,13 +359,32 @@ footer {
 /* --------------------- MEDIA QUERIES --------------------- */
 /* Tablet Media Queries */
 @media (min-width: 640px) {
+
+    .nav-item {
+        margin-bottom: 1.2rem;
+        background-color: #7a7a7aee;
+    }
     .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
     .card {
         display: flex;
         flex-direction: column;
+        margin-bottom: 0; 
+        cursor: pointer;
         height: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.18); 
+    }
+    .light-mode .card {
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .light-mode .card:hover {
+        box-shadow: 0 20px 40px rgba(0,0,0,0.14);
     }
     .image-container {
         flex-shrink: 0;
@@ -363,7 +401,6 @@ footer {
         margin-top: 0;
     }
     .bottom-row {
-        height: 100px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -387,18 +424,26 @@ footer {
         width: 2.2rem;
         height: 1.8rem;
     }
+    .hamburger:hover .line {
+        background-color: var(--hamburger-hover-line);
+    }
     .section-headers {
         font-size: 2rem;
     }
     #submit-button {
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    line-height: 1.6rem;
-    width: 5.5rem;
-}
-
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        line-height: 1.6rem;
+        width: 5.5rem;
+    }
+    .hamburger.active .line:nth-child(1) {
+        transform: translateY(13px) rotate(45deg);
+    }
+    .hamburger.active .line:nth-child(3) {
+        transform: translateY(-13px) rotate(-45deg);
+    }
 }
 
 /* 3 columns on desktop */

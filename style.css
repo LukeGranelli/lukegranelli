@@ -1,3 +1,20 @@
+/* Custom Variables */
+:root {
+    --bg: #0f0f0f;
+    --text: #e0e0e0;
+    --heading: #f0f0f0;
+    --card: #242424;
+    --accent: #ebe834;
+}
+.light-mode {
+    --bg: #fafafa;
+    --card: #ffffff;
+    --text: #333333;
+    --heading: #000000;
+    --accent: #ebe834;
+}
+
+
 /* Global Styles */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -11,8 +28,8 @@ html {
 }
 
 body {
-    background-color: #202020;
-    color: #FFFFFF;
+    background-color: var(--bg);
+    color: var(--text);
     font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.6;
     min-height: 100vh;
@@ -32,15 +49,11 @@ hr {
     opacity: 0.7;
 }
 
-
-
-
-
-
+/* Header */
 .site-header {
     position: sticky;
     top: 0;
-    background: #202020;
+    background: var(--bg);
     z-index: 1000;
     padding: 1rem;
     display: flex;
@@ -53,15 +66,6 @@ hr {
     align-items: center;
     gap: 1rem;
 }
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-
-/* header  */
 #header {
     width: 100%;
     display: flex;
@@ -96,7 +100,6 @@ img {
   border-radius: 10px;
   transition: all 0.35s ease;
 }
-
 .hamburger.active .line:nth-child(1) {
   transform: translateY(10.5px) rotate(45deg);
 }
@@ -124,41 +127,36 @@ img {
     z-index: 999;
     overflow-y: auto;
 }
-
 #navbar.open {
     opacity: 1;
     visibility: visible;
 }
-
 nav>ul>li {
     list-style-type: none;
     display: block;
 }
-
 .nav-item {
     width: 80vw;
-    background-color: #484848;
+    background-color: var(--card);
     text-align: center;
     padding: 0.75rem 0;
     margin-bottom: 0.5rem;
 }
-
 .nav-item a {
     text-decoration: none;
-    color: #FFFFFF;
+    color: var(--text);
     font-weight: bold;
     font-size: 1.2rem;
 }
 .nav-item a:hover {
-    color: #ebe834;
+    color: var(--accent);
     font-weight: bold;
     font-size: 1.2rem;
 }
 .logo {
     text-decoration: none;
-    color: #FFFFFF;
+    color: var(--text);
 }
-
 .site-header .logo h1 {
     font-size: 1.1rem;
     font-weight: 500;
@@ -181,10 +179,12 @@ nav>ul>li {
     line-height: 1;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
+    color: var(--heading);
 }
 
 #about-info {
     margin-bottom: 1rem;
+    color: var(--heading);
 }
 
 #profile-image {
@@ -200,10 +200,10 @@ nav>ul>li {
 
 .section-headers {
     margin-bottom: 1rem;
+    color: var(--heading);
 }
-
 .card {
-    background-color: #484848;
+    background-color: var(--card);
     border-radius: 1rem;
     padding-bottom: 0.75rem;
     margin-bottom: 1.5rem;
@@ -212,6 +212,11 @@ nav>ul>li {
     overflow: hidden;
     margin: 0;
     height: 16rem;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 .project-image {
     width: 100%;
@@ -224,9 +229,11 @@ nav>ul>li {
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     font-size: 1.3rem;
+    color: var(--heading);
 }
 .project-info {
     margin-bottom: 0.5rem;
+    color: var(--text);
 }
 .card-content {
     margin: 1rem 0.5rem 0 0.5rem;
@@ -247,8 +254,8 @@ nav>ul>li {
 }
 .view-project-button {
     border: none;
-    color: #202020;
-    background-color: #ebe834;
+    color: var(--bg);
+    background-color: var(--accent);
     padding: 0.5rem 1rem;
     border-radius: 1rem;
     text-decoration: none;
@@ -271,7 +278,9 @@ nav>ul>li {
     border-radius: 0.25rem;
     line-height: 1.8rem;
 }
-
+form>label {
+    color: var(--text);
+}
 #message {
     height: 8rem;
     margin-bottom: 1rem;
@@ -282,26 +291,27 @@ nav>ul>li {
 }
 
 #submit-button {
-    background-color: #ebe834;
-    color: #202020;
+    background-color: var(--accent);
+    color: var(--bg);
     border: none;
-    padding: 0.8rem 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 1rem;
     font-weight: bold;
     cursor: pointer;
+    line-height: 1.6rem;
 }
 form>input, form>textarea {
-    outline: 2px solid #202020;
+    outline: 2px solid var(--bg);
 } 
 
 form>input:focus, form>textarea:focus {
-    outline: 2px solid #ebe834;
+    outline: 2px solid var(--accent);
 }
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid #ebe834;
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -312,5 +322,5 @@ footer {
     color: #7a7a7a;
     text-align: center;
     padding: 1rem 0;
-    border-top: 1px solid #484848;
+    border-top: 1px solid var(--card);
 }

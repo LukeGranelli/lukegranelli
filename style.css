@@ -87,7 +87,69 @@ hr {
     opacity: 0.5;
 }
 
+/* Theme Toggle Button */
+
+.theme-toggle {
+    --size: 56px;
+    --knob: 25px;
+    --gap: 1.5px;
+
+    position: relative;
+    width: var(--size);
+    height: calc(var(--size) / 1.85);
+    background: transparent;
+    border: 2px solid var(--card);
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.4s ease;
+}
+.theme-toggle .knob {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: var(--knob);
+    height: var(--knob);
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transform: translateY(-50%);
+    transition: transform 0.35s cubic-bezier(0.4, 0.0, 0.2, 1.0);
+    z-index: 3;
+}
+.theme-toggle .icon {
+    position: absolute;
+    top: 50%;
+    font-size: 15px;
+    transform: translateY(-55%);
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+.theme-toggle .sun {
+    left: 4px;
+    opacity: 0;
+}
+.theme-toggle .moon {
+    right: 4px;
+    opacity: 1;
+}
+.light-mode .theme-toggle {
+  border-color: #e0e0e0;
+}
+.light-mode .theme-toggle .knob {
+  transform: translateY(-50%) translateX(calc(var(--size) - var(--knob) - 2*var(--gap)));
+}
+.light-mode .theme-toggle .sun  {
+    opacity: 1;
+}
+.light-mode .theme-toggle .moon {
+    opacity: 0;
+}
+
+
 /* Hamburger Menu  */
+
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -325,11 +387,15 @@ form>label {
     line-height: 1.6rem;
 }
 form>input, form>textarea {
-    outline: 2px solid var(--bg);
+    border: 1px solid #444;
+    padding: 0.4rem;
+    margin-bottom: 1rem;
 } 
 
 form>input:focus, form>textarea:focus {
-    outline: 2px solid var(--accent);
+    border: 0 0 0 2px var(--accent)
+
+
 }
 a:focus-visible,
 button:focus-visible,
@@ -448,9 +514,14 @@ footer {
 
 /* 3 columns on desktop */
 @media (min-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    .theme-toggle {
+        --size: 60px;
+        --knob: 28px;
+        --gap: 1.5px;
+    }
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 

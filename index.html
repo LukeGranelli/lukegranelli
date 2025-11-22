@@ -18,39 +18,54 @@
                 <h1 id="logo-text">Luke Granelli</h1>
             </a>
 
-            <div class="header-right">
+            <!-- Desktop Navbar - Hidden on Mobile -->
+            <div id="desktop-navbar" aria-label="Main navigation">
+                <nav>
+                    <ul>
+                        <li class="desktop-nav-item"><a href="#about-section">About</a></li>
+                        <li class="desktop-nav-item"><a href="#projects-section">Projects</a></li>
+                        <li class="desktop-nav-item"><a href="#contact-section">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
 
-                <!-- Theme toggle -->
+            <!-- Header Controls -->
+            <div class="header-controls">
+                <!-- Theme Toggle -->
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
                     <span class="knob"></span>
                     <span class="icon sun">☀️</span>
                     <span class="icon moon">🌙</span>
                 </button>
 
-                <!-- Hamburger (only visible on mobile/tablet) -->
+                <!-- Hamburger Button (only visible on mobile/tablet) -->
                 <button id="hamburger" class="hamburger icon-button" aria-label="Menu">
                     <span class="line"></span>
                     <span class="line"></span>
                     <span class="line"></span>
                 </button>
             </div>
+
+            <!-- Mobile & Tablet Menu with full screen overlay - Hidden on Desktop -->
+            <div id="mobile-navbar">
+                <nav aria-label="Mobile navigation">
+                    <ul>
+                        <li class="mobile-nav-item"><a href="#about-section">About</a></li>
+                        <li class="mobile-nav-item"><a href="#projects-section">Projects</a></li>
+                        <li class="mobile-nav-item"><a href="#contact-section">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
 
-        <!-- navbar -->
-        <div id="navbar">
-            <nav>
-                <ul>
-                    <li class="nav-item"><a href="#about-section">About</a></li>
-                    <li class="nav-item"><a href="#projects-section">Projects</a></li>
-                    <li class="nav-item"><a href="#contact-section">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        
         
         <!-- About Section -->
         <section id="about-section">
-            <h2 class="hero-name">Hi, I am Luke Granelli</h2>
-            <p id="about-info">Cape Town-based front-end developer on the path to full-stack and mobile application developer — currently mastering HTML, CSS, JavaScript and modern frameworks as well as exploring and studying mobile application frameworks such as React Native.</p>
+            <div class="about-text">
+                <h2 class="hero-name">Hi, I am Luke Granelli</h2>
+                <p id="about-info">Cape Town-based front-end developer on the path to full-stack and mobile application developer — currently mastering HTML, CSS, JavaScript and modern frameworks as well as exploring and studying mobile application frameworks such as React Native.</p>
+            </div>
             <img id="profile-image" src="assets/images/profile-placeholder.jpg" alt="Silhouette placeholder" srcset="">
         </section>
 
@@ -84,7 +99,7 @@
                         <h4 class="project-title">Project Title</h4>
                         <p class="project-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed hic et necessitatibus atque reiciendis cum quam debitis vero laudantium fugit inventore nisi corrupti ut, minus magnam sapiente libero non provident.</p>
                         <div class="bottom-row">
-                            <p class="tech-stack-info">HTML, CSS, JavaScript, React, Nodejs, Nextjs, Supabase, GraphQL</p>
+                            <p class="tech-stack-info">HTML, CSS, JavaScript, Nextjs, Supabase</p>
                             <a href="#" class="view-project-button">View Project</a>
                         </div>
                         

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const hamburgerButton = document.getElementById("hamburger");
-    const navbar    = document.getElementById("navbar");
+    const navbar = document.getElementById("mobile-navbar");
 
     hamburgerButton.addEventListener("click", () => {
         hamburgerButton.classList.toggle("active");
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.toggle("no-scroll");
     });
 
-    document.querySelectorAll("#navbar a").forEach(link => {
+    document.querySelectorAll("#mobile-navbar a").forEach(link => {
         link.addEventListener("click", () => {
             hamburger.classList.remove("active");
             navbar.classList.remove("open");
@@ -27,29 +27,5 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedTheme === "light") {
         document.body.classList.add("light-mode");
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });

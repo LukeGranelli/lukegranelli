@@ -7,7 +7,8 @@
     --accent: #ebe834;
     --button-text: #000000;
     --hamburger-line: #ffffff;
-    --hamburger-hover-line: var(--accent)
+    --hamburger-hover-line: var(--accent);
+    --nav-item-hover: var(--accent);
 }
 .light-mode {
     --bg: #e8e8e8;
@@ -18,6 +19,7 @@
     --button-text: #000000;
     --hamburger-line: #000000;
     --hamburger-hover-line: #000000;
+    --nav-item-hover: #000000;
 }
 
 
@@ -70,7 +72,7 @@ hr {
 .light-mode .site-header {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.header-right {
+.header-controls {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -160,27 +162,33 @@ hr {
   border: none;
   cursor: pointer;
   padding: 0;
+  z-index: 950;
 }
 .hamburger .line {
   width: 100%;
   height: 3px;
   background-color: var(--hamburger-line);
   border-radius: 10px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, background-color 0.3s ease;
 }
 .hamburger.active .line:nth-child(1) {
-  transform: translateY(10.5px) rotate(45deg);
+  transform: translateY(9px) rotate(45deg);
+  background-color: var(--accent)
 }
 .hamburger.active .line:nth-child(2) {
   opacity: 0;
 }
 .hamburger.active .line:nth-child(3) {
-  transform: translateY(-10.5px) rotate(-45deg);
+  transform: translateY(-9px) rotate(-45deg);
+  background-color: var(--accent)
 }
 
 
-/* navbar */
-#navbar {
+/* Navbars */
+#desktop-navbar {
+    display: none;
+}
+#mobile-navbar {
     display: block;
     position: fixed;
     display: flex;
@@ -192,10 +200,10 @@ hr {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 999;
+    z-index: 900;
     overflow-y: auto;
 }
-#navbar.open {
+#mobile-navbar.open {
     opacity: 1;
     visibility: visible;
 }
@@ -203,17 +211,17 @@ nav>ul>li {
     list-style-type: none;
     display: block;
 }
-.nav-item {
+.mobile-nav-item {
     position: relative;
     width: 80vw;
-    background-color: var(--card);
+    background-color: var(--nav-item-bg);
     text-align: center;
     padding: 1.5rem 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     border-radius: 0.75rem;
     overflow: hidden;
 }
-.nav-item a {
+.mobile-nav-item a {
     position: absolute;
     inset: 0;
     display: flex;
@@ -225,16 +233,16 @@ nav>ul>li {
     font-size: 1.2rem;
     z-index: 1;
 }
-.nav-item:hover {
+.mobile-nav-item:hover {
     background-color: var(--accent);
 }
 
-.nav-item a:hover {
+.mobile-nav-item a:hover {
     color: #000;
     font-weight: bold;
     font-size: 1.2rem;
 }
-.nav-item:active {
+.mobile-nav-item:active {
     transform: scale(0.98);
     transition: transform 0.1s ease;
 }
@@ -386,23 +394,26 @@ form>label {
     cursor: pointer;
     line-height: 1.6rem;
 }
-form>input, form>textarea {
-    border: 1px solid #444;
+form input, form textarea {
+    border: 2px solid transparent;
+    background-clip: padding-box;
     padding: 0.4rem;
     margin-bottom: 1rem;
 } 
 
-form>input:focus, form>textarea:focus {
-    border: 0 0 0 2px var(--accent)
-
-
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  border-color: transparent !important;
 }
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 2px;
+  outline: 2px solid var(--accent);
+  outline-offset: -3px;
 }
 
 
@@ -426,7 +437,7 @@ footer {
 /* Tablet Media Queries */
 @media (min-width: 640px) {
 
-    .nav-item {
+    .mobile-nav-item {
         margin-bottom: 1.2rem;
         background-color: #7a7a7aee;
     }
@@ -481,7 +492,7 @@ footer {
     #logo-text {
         font-size: 1.3rem;
     }
-    .header-right {
+    .header-controls {
         gap: 2rem;
         padding-right: 1rem;
         padding-left: 1rem;
@@ -520,14 +531,119 @@ footer {
         --gap: 1.5px;
     }
     .projects-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        justify-content: center;
+    }
+    #mobile-navbar, .hamburger {
+        display: none;
+    }
+    #desktop-navbar {
+        display: block;
+    }
+
+
+
+    
+    #desktop-navbar ul {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .desktop-nav-item {
+    position: relative;
+  }
+
+  .desktop-nav-item a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+  }
+
+  /* The magic: animated underline */
+  .desktop-nav-item a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--nav-item-hover);
+    border-radius: 2px;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .desktop-nav-item a:hover::after,
+  .desktop-nav-item a:focus-visible::after {
+    width: 100%;
+  }
+
+  .desktop-nav-item a:hover,
+  .desktop-nav-item a:focus-visible {
+    color: var(--nav-item-hover);
+  }
+
+  /* Active/current section gets full underline */
+  .desktop-nav-item a.active::after {
+    width: 100%;
+  }
+
+
+    #about-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    .about-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    #profile-image {
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        border-radius: 1.5rem;
+        object-fit: cover;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        justify-self: end;
+    }
+    #about-section {
+        margin-top: 1.5rem;
+    }
+    hr {
+        margin-top: 4rem;
+        margin-bottom: 3rem;
+    }
+    #projects-section, #contact-section {
+        margin-left: 6rem;
+        margin-right: 6rem;
+    }
+    .section-headers {
+        margin-left: 3rem;
+
     }
 }
 
 
-/* 4  columns on large desktop large */
+/* Large Desktops */
 @media (min-width: 1280px) { 
   .projects-grid {
-    grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        justify-content: center;
   }
 }

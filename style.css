@@ -548,51 +548,56 @@ footer {
 
     
     #desktop-navbar ul {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+    }
 
-  .desktop-nav-item {
-    position: relative;
-  }
+    .desktop-nav-item {
+        position: relative;
+    }
 
-  .desktop-nav-item a {
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 0.5rem 0;
-    transition: color 0.3s ease;
-  }
+    .desktop-nav-item a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+        transition: color 0.3s ease;
+    }
+    /* animation of underline for nav items */
+    .desktop-nav-item a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: var(--nav-item-hover);
+        border-radius: 2px;
+        transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-  /* The magic: animated underline */
-  .desktop-nav-item a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background-color: var(--nav-item-hover);
-    border-radius: 2px;
-    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+    .desktop-nav-item a:hover::after,
+    .desktop-nav-item a:focus-visible::after {
+        width: 100%;
+    }
 
-  .desktop-nav-item a:hover::after,
-  .desktop-nav-item a:focus-visible::after {
-    width: 100%;
-  }
+    .desktop-nav-item a:hover,
+    .desktop-nav-item a:focus-visible {
+        color: var(--nav-item-hover);
+    }
 
-  .desktop-nav-item a:hover,
-  .desktop-nav-item a:focus-visible {
-    color: var(--nav-item-hover);
-  }
+    .desktop-nav-item a.active::after {
+        width: 100%;
+    }
 
-  /* Active/current section gets full underline */
-  .desktop-nav-item a.active::after {
-    width: 100%;
-  }
+    .desktop-nav-item a.active {
+        color: var(--nav-accent, var(--accent));
+    }
+    .desktop-nav-item a.active::after {
+        width: 100%;
+    }
 
 
     #about-section {

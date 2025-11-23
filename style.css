@@ -523,7 +523,7 @@ footer {
     }
 }
 
-/* 3 columns on desktop */
+/* Desktop Media Queries */
 @media (min-width: 1024px) {
     .theme-toggle {
         --size: 60px;
@@ -543,21 +543,43 @@ footer {
     #desktop-navbar {
         display: block;
     }
-
-
-
-    
+    .site-header {
+        position: sticky;
+        top: 0;
+        background: var(--bg);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 2rem;
+    }
+    .light-mode .site-header {
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+    .site-header .logo {
+        justify-self: start;
+    }
+    #desktop-navbar {
+        justify-self: center;
+    }
+    .header-controls {
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
     #desktop-navbar ul {
         display: flex;
         gap: 2.5rem;
         list-style: none;
     }
-
     .desktop-nav-item {
         position: relative;
     }
-
     .desktop-nav-item a {
+        position: relative;
         text-decoration: none;
         color: var(--text);
         font-weight: 600;
@@ -577,29 +599,16 @@ footer {
         border-radius: 2px;
         transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .desktop-nav-item a:hover::after,
-    .desktop-nav-item a:focus-visible::after {
+    .desktop-nav-item a:focus-visible::after,
+    .desktop-nav-item a.active::after {
         width: 100%;
     }
-
     .desktop-nav-item a:hover,
-    .desktop-nav-item a:focus-visible {
+    .desktop-nav-item a:focus-visible,
+    .desktop-nav-item a.active {
         color: var(--nav-item-hover);
     }
-
-    .desktop-nav-item a.active::after {
-        width: 100%;
-    }
-
-    .desktop-nav-item a.active {
-        color: var(--nav-accent, var(--accent));
-    }
-    .desktop-nav-item a.active::after {
-        width: 100%;
-    }
-
-
     #about-section {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -637,7 +646,6 @@ footer {
     }
     .section-headers {
         margin-left: 3rem;
-
     }
 }
 

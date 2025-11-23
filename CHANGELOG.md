@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### [v1.3] - 23-11-2025
+- Fixed styling issue on desktop navbar
+- Improved highlighting navbar based on sections being viewed
+
 ### [v1.2] - 22-11-2025
 - Desktop view size implemented (1024px)
 

@@ -652,6 +652,20 @@ footer {
 
 /* Large Desktops */
 @media (min-width: 1280px) { 
+    
+  .site-header {
+    padding: 2rem 4rem;
+    }
+    #desktop-navbar ul {
+        gap: 4rem;
+    }
+    .projects-grid {
+        max-width: 1600px;
+        padding: 0 4rem;
+    }
+    #about-section, #projects-section, #contact-section {
+        padding: 0 6rem;
+    }
   .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
         max-width: 1400px;
@@ -659,4 +673,18 @@ footer {
         padding: 0 2rem;
         justify-content: center;
   }
+}
+
+/* XL Desktop */
+@media (min-width: 1920px) {
+    .site-header {
+        padding: 2.5rem 6rem;
+    }
+    #desktop-navbar ul {
+        gap: 5rem;
+    }
+    .projects-grid {
+        max-width: 1800px;
+        padding: 0 4rem;
+    }
 }

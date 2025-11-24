@@ -1,8 +1,9 @@
 # CHANGELOG
 
 ### [v1.4] - 24-11-2025
-- Resolved rootMargin issue for navbar section highlighting
+- Replaced placeholder project cards with 'coming soon' card
 - Added styling for large desktop (1024px) and XL desktop (1920px) view sizes
+- Resolved rootMargin issue for navbar section highlighting
 
 ### [v1.3] - 23-11-2025
 - Fixed styling issue on desktop navbar

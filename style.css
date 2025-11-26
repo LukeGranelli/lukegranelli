@@ -38,7 +38,6 @@
 html {
     scroll-behavior: smooth;
 }
-
 body {
     background-color: var(--bg);
     color: var(--text);
@@ -81,9 +80,6 @@ hr {
     text-align:center;
     margin-top:1rem;
 }
-
-
-
 
 
 
@@ -269,7 +265,6 @@ nav>ul>li {
 .mobile-nav-item:hover {
     background-color: var(--accent);
 }
-
 .mobile-nav-item a:hover {
     color: #000;
     font-weight: bold;
@@ -307,20 +302,19 @@ nav>ul>li {
     text-transform: uppercase;
     color: var(--heading);
 }
-
 #about-info {
     margin-bottom: 1rem;
     color: var(--heading);
 }
-
 #profile-image {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    max-width: 400px;
+    max-height: 280px;
     border-radius: 1rem;
+    object-fit: cover;
     display: block;    
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
-
 
 /* project section */
 
@@ -402,7 +396,6 @@ nav>ul>li {
 #contact-form {
     padding: 0 0.8rem;
 }
-
 #name, #email, #subject, #message {
     width: 100%;
     border-radius: 0.25rem;
@@ -419,8 +412,6 @@ form>label {
     display: flex;
     justify-content: flex-end;
 }
-
-
 #submit-button {
     background-color: var(--accent);
     color: var(--button-text);
@@ -431,7 +422,6 @@ form>label {
     cursor: pointer;
     line-height: 1.6rem;
 }
-
 #form-status-message {
     min-height: 1.4rem;
     line-height: 1.4;
@@ -444,29 +434,24 @@ form>label {
     flex: 1;
     text-align: center;
 }
-
 #form-status-message.show {
   opacity: 1;
 }
-
 #form-status-message.error {
   color: var(--error);
 }
-
 form input, form textarea {
     border: 2px solid transparent;
     background-clip: padding-box;
     padding: 0.4rem;
     margin-bottom: 1rem;
 } 
-
 input:focus-visible,
 textarea:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: -2px;
   border-color: transparent !important;
 }
-
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -485,7 +470,6 @@ textarea:focus-visible {
 #name-error, #email-error, #message-error {
     visibility: hidden;
 }
-
 #form-status-message {
     margin-top: 1rem;
     color: var(--msg-sent)
@@ -498,12 +482,9 @@ footer {
     padding: 1rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .light-mode footer {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-
-
 
 
 /* --------------------- MEDIA QUERIES --------------------- */
@@ -514,6 +495,34 @@ footer {
         margin-bottom: 1.2rem;
         background-color: #7a7a7aee;
     }
+    #about-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    .about-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    #profile-image {
+        width: 100%;
+        max-width: 420px;
+        max-height: 350px;
+        border-radius: 1.5rem;
+        object-fit: cover;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        justify-self: end;
+    }
+    #about-section {
+        margin-top: 1.5rem;
+    }
+
     .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
@@ -595,7 +604,7 @@ footer {
     }
 }
 
-/* Desktop Media Queries */
+/* Laptop Media Queries */
 @media (min-width: 1024px) {
     .theme-toggle {
         --size: 60px;
@@ -699,7 +708,7 @@ footer {
     #profile-image {
         width: 100%;
         max-width: 420px;
-        height: auto;
+        max-height: 350px;
         border-radius: 1.5rem;
         object-fit: cover;
         box-shadow: 0 20px 40px rgba(0,0,0,0.2);
@@ -718,6 +727,9 @@ footer {
     }
     .section-headers {
         margin-left: 3rem;
+    }
+    form {
+        margin: auto 1rem;
     }
 }
 
@@ -745,6 +757,9 @@ footer {
         padding: 0 2rem;
         justify-content: center;
   }
+  form {
+    margin: auto 1rem;
+  }
 }
 
 /* XL Desktop */
@@ -758,5 +773,8 @@ footer {
     .projects-grid {
         max-width: 1800px;
         padding: 0 4rem;
+    }
+    form {
+        margin: auto 3rem;
     }
 }

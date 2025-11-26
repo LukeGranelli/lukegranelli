@@ -93,14 +93,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const emailErrResponse = document.getElementById('email-error')
         const msgErrResponse = document.getElementById('message-error')
 
-        //1: Grab elements
+        // Grab elements
         const nameInputEl = document.getElementById("name");
         const emailInputEl = document.getElementById("email");
         const messageInputEl = document.getElementById("message");
         const statusMessageEl = document.getElementById("form-status-message");
         const submitButtonEl = document.getElementById("submit-button");
         
-        //2: Clear previous error messages
+        // Clear previous error messages
         document.querySelectorAll(".error-message").forEach(element => element.style.visibility = "hidden");
         document.querySelectorAll("input, textarea").forEach(element => element.setAttribute("aria-invalid", "false"));
         
@@ -108,12 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let hasError = false;
         submitButtonEl.disabled = false;
 
-        //3. Grab strings (input values)
+        // Grab strings (input values)
         const nameValue = nameInputEl.value.trim();
         const emailValue = emailInputEl.value.trim();
         const messageValue = messageInputEl.value.trim();
 
-        //4. Validate inputs
+        // Validate inputs
         if (!nameValue) {
             hasError = true;
             nameErrResponse.textContent = errorName
@@ -135,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButtonEl.disabled = true;
         statusMessageEl.textContent = "Sending..."
 
+        // try send email
         try {
         const response = await fetch("https://formspree.io/f/xovzygkv", {
             method: "POST",
@@ -162,16 +163,5 @@ document.addEventListener("DOMContentLoaded", () => {
         } finally {
         submitButtonEl.disabled = false;
         }
-
-
-
     })
-
-
-
-
-
-
-
-
 });

@@ -433,7 +433,9 @@ form>label {
 }
 
 #form-status-message {
-    margin: auto 1rem;
+    min-height: 1.4em;
+    line-height: 1.4;
+    margin: 0.5rem auto 0;
     font-weight: 600;
     font-size: 0.95rem;
     opacity: 1;

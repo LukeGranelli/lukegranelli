@@ -1,4 +1,6 @@
 # CHANGELOG
+### [v1.5] - 26-11-2025
+- Implemented contact form functionality
 
 ### [v1.4] - 24-11-2025
 - Replaced placeholder project cards with 'coming soon' card

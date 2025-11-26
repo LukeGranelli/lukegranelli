@@ -9,6 +9,8 @@
     --hamburger-line: #ffffff;
     --hamburger-hover-line: var(--accent);
     --nav-item-hover: var(--accent);
+    --error: #ff5555;
+    --msg-sent: var(--accent);
 }
 .light-mode {
     --bg: #e8e8e8;
@@ -20,6 +22,8 @@
     --hamburger-line: #000000;
     --hamburger-hover-line: #000000;
     --nav-item-hover: #000000;
+    --error: #cd3737;
+    --msg-sent: #000000;
 }
 
 
@@ -389,8 +393,11 @@ nav>ul>li {
 
 /* contact section */
 
-#contact-section, #projects-section {
+#projects-section {
     margin: 0 1rem 3rem 1rem;
+}
+#contact-section {
+    margin: 0 1rem 1.5rem 1rem;
 }
 #contact-form {
     padding: 0 0.8rem;
@@ -413,6 +420,7 @@ form>label {
     justify-content: flex-end;
 }
 
+
 #submit-button {
     background-color: var(--accent);
     color: var(--button-text);
@@ -423,6 +431,26 @@ form>label {
     cursor: pointer;
     line-height: 1.6rem;
 }
+
+#form-status-message {
+    margin: auto 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    opacity: 1;
+    transition: opacity 0.35s ease;
+    color: var(--msg-sent);
+    flex: 1;
+    text-align: center;
+}
+
+#form-status-message.show {
+  opacity: 1;
+}
+
+#form-status-message.error {
+  color: var(--error);
+}
+
 form input, form textarea {
     border: 2px solid transparent;
     background-clip: padding-box;
@@ -444,8 +472,22 @@ textarea:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: -3px;
 }
+.error-message {
+    min-height: 1.4em;
+    color: var(--error);
+    font-size: 0.9rem;
+    margin-top: -0.7rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.1rem;
+}
+#name-error, #email-error, #message-error {
+    visibility: hidden;
+}
 
-
+#form-status-message {
+    margin-top: 1rem;
+    color: var(--msg-sent)
+}
 /* Footer */
 
 footer {
@@ -542,7 +584,6 @@ footer {
         font-weight: bold;
         cursor: pointer;
         line-height: 1.6rem;
-        width: 5.5rem;
     }
     .hamburger.active .line:nth-child(1) {
         transform: translateY(13px) rotate(45deg);

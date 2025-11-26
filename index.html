@@ -107,23 +107,27 @@
         <section id="contact-section">
             <h2 class="section-headers">LET'S CONNECT</h2>
 
-            <form id="contact-form">
+            <form id="contact-form" novalidate>
                 <label for="name">Name:</label> <br>
-                <input type="text" id="name" name="name" required> <br>
+                <input type="text" id="name" name="name" aria-describedby="name-error" aria-invalid="false"> <br>
+                <p id="name-error" class="error-message" aria-live="polite">Please enter your name</p>
 
                 <label for="email">Email:</label> <br>
-                <input type="email" id="email" name="email" required> <br>
-
-                <label for="subject">Subject:</label> <br>
-                <input type="subject" id="subject" name="subject" required> <br>
+                <input type="email" id="email" name="email" aria-describedby="email-error" aria-invalid="false"> <br>
+                <p id="email-error" class="error-message" aria-live="polite">Please enter a valid email address</p>
 
                 <label for="message">Message:</label> <br>
-                <textarea id="message" name="message" required></textarea>
+                <textarea id="message" name="message" aria-describedby="message-error" aria-invalid="false"></textarea>
+                <p id="message-error" class="error-message" aria-live="polite">Please enter a message</p>
+
                 <div id="form-button-row">
-                    <button id="submit-button">Send</button>
+                    <button id="submit-button">Send Message</button>
                 </div>
+                <p id="form-status-message" aria-live="polite"></p>
+                
             </form>
         </section>
+
         <footer>
             <p id="footer-text">© 2025 Luke Granelli. All rights reserved.</p>
         </footer>

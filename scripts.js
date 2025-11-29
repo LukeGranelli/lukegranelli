@@ -117,16 +117,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!nameValue) {
             hasError = true;
             nameErrResponse.textContent = errorName
+            nameErrResponse.style.visibility = "visible"; 
             nameInputEl.setAttribute("aria-invalid", "true")
         }
-        if (!emailValue || !emailValue.checkValidity()) {
+        if (!emailValue || !emailInputEl.checkValidity()) {
             hasError = true;
             emailErrResponse.textContent = errorEmail
+            emailErrResponse.style.visibility = "visible";
             emailInputEl.setAttribute("aria-invalid", "true")
         }
         if (messageValue.length < 10) {
             hasError = true;
             msgErrResponse.textContent = errorMsg
+            msgErrResponse.style.visibility = "visible";
             messageInputEl.setAttribute("aria-invalid", "true")
         }
         if (hasError) {

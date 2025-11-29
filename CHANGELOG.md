@@ -1,4 +1,8 @@
 # CHANGELOG
+
+### [v1.6] - 29-11-2025
+- Fixed form submission issue
+
 ### [v1.5] - 26-11-2025
 - Implemented contact form functionality
 
